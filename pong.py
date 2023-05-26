@@ -45,7 +45,7 @@ while run:
         if ball["x"] - ball["radius"] <= paddle_1["x"] + paddle_1["width"]:
             ball["x_velocity"] *= -1
             if ball["y"] <= paddle_1["y"] + (paddle_1["height"] // 2):
-                difference = (paddle_1["y"] + (paddle_1["height"] // 2)) - ball["y"]
+                difference = (paddle_1["y"]) + (paddle_1["height"] // 2) - ball["y"]
                 reduction = (paddle_1["height"] / 2) / 4
                 ball["y_velocity"] = (difference / reduction) * -1
             else:
