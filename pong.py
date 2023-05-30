@@ -77,14 +77,14 @@ while run:
         (paddle_2["x"], paddle_2["y"], paddle_2["width"], paddle_2["height"]),
     )
 
-    if ball["x"] < 0:
+    if ball["x"] <= 0:
         score_two += 1
         ball["x"] = 300
         ball["y"] = 200
         ball["x_velocity"] *= -1
         ball["y_velocity"] = 0
 
-    elif ball["x"] > 600:
+    elif ball["x"] >= 600:
         score_one += 1
         ball["x"] = 300
         ball["y"] = 200
@@ -100,19 +100,20 @@ while run:
             text_to_write,
             (600 // 2 - text_to_write.get_width() // 2, 200 - text_to_write.get_height() // 2),
         )
-        score_one = 0
+        score_one, score_two = 0, 0
         pygame.display.update()
         pygame.time.delay(10000)
-    elif score_two >= 5:
+    
+    if score_two >= 5:
         winning_text = "Right player won"
         text_to_write = font.render(winning_text, 1, (255, 255, 255))
         window.blit(
             text_to_write,
             (600 // 2 - text_to_write.get_width() // 2, 200 - text_to_write.get_height() // 2),
         )
+        score_one, score_two = 0, 0
         pygame.display.update()
         pygame.time.delay(10000)
-        score_two = 0
 
     score_one_text = font.render(f"{score_one}", 1, (255, 255, 255))
     score_two_text = font.render(f"{score_two}", 1, (255, 255, 255))
