@@ -1,5 +1,11 @@
 import pygame
 
+df = (
+    spark.read.format('csv').load('dbfs:/Filestore/...')
+)
+display(df)
+
+
 paddle_1 = {"x": 10, "y": 175, "width": 10, "height": 100, "color": (255, 255, 255)}
 paddle_2 = {"x": 580, "y": 175, "width": 10, "height": 100, "color": (255, 255, 255)}
 
